@@ -44,7 +44,7 @@ export default function HomePage() {
                 bg: 'red.400',
                 zIndex: -1,
               }}>
-              Write once,
+              Poommie,
             </Text>
             <br />
             <Text as={'span'} color={'red.400'}>
