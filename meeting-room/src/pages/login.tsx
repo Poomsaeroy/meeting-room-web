@@ -16,8 +16,10 @@ import { useForm , SubmitHandler} from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import { LoginFormInput } from './../app-types/loginform-input';
+import toast, { Toaster } from 'react-hot-toast';
 
 export default function LoginPage() {
+  const notify = () => toast.success('Submit!');
   const schema = yup.object().shape({
     email: yup.string().required('ป้อนข้อมูลอีเมลด้วย').email('รูปแบบไม่ถูกต้อง'),
     password: yup.string().required('ป้อนรหัสผ่าน').min(6,'รหัสผ่านอย่างน้อย 6 ตัวอักษร'),
@@ -66,6 +68,7 @@ export default function LoginPage() {
               </FormControl>
               <Stack spacing={10}>
                 <Button
+                  onClick={notify}
                   isLoading={isSubmitting}
                   loadingText="กำลังเข้าสู่ระบบ"
                   type="submit"
@@ -76,6 +79,14 @@ export default function LoginPage() {
                   }}>
                   login
                 </Button>
+                <Toaster
+                  position="top-center"
+                  reverseOrder={false}
+                  toastOptions={{
+                    duration: 3000,
+                  }}
+                  
+                />
               </Stack>
             </Stack>
           </Box>
