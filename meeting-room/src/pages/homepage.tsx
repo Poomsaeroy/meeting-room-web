@@ -12,14 +12,15 @@ import {
   createIcon,
   IconProps,
   useColorModeValue,
-} from '@chakra-ui/react'
-
+} from '@chakra-ui/react';
 import { useNavigate } from "react-router-dom";
+import FooterPage from '../components/footer';
 
 export default function HomePage() {
     const navigate = useNavigate();
 
     return (
+      <>
     <Container maxW={'7xl'}>
       <Stack
         align={'center'}
@@ -118,6 +119,9 @@ export default function HomePage() {
         </Flex>
       </Stack>
     </Container>
+    <FooterPage/>
+
+    </>
   )
 }
 
